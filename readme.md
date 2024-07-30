@@ -6,6 +6,7 @@
   - Website: https://kevincunningham.co.uk
 - Repo link: [Insert Repo Link](https://github.com/doingandlearning/playwright-with-ts)
 - Feedback link: [Feedback](https://forms.office.com/e/393JqmsC4M)
+- Miro board: [Miro](https://miro.com/app/board/uXjVKuH_Pkg=/?share_link_id=807780565822)
 
 ## Timings:
 
