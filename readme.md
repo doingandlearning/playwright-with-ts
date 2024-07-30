@@ -20,7 +20,7 @@
 
 ## Aim
 
-The aim of the workshop is to enable testers with extensive Selenium and Java experience to transition to using Playwright with TypeScript for web application testing. By the end of the day, participants will be able to set up Playwright, write and run tests, manage advanced test scenarios, and integrate Playwright into CI/CD pipelines.
+The aim of the workshop is to enable testers with extensive Selenium and Java experience to transition to using Playwright with TypeScript for web application testing. By the end of the day, participants will be able to set up Playwright, write and run tests, manage advanced test scenarios, and know how Playwright fits into CI/CD pipelines.
 
 ## Agenda
 
@@ -94,7 +94,3 @@ The aim of the workshop is to enable testers with extensive Selenium and Java ex
 
 - **Playwright Documentation**: [Playwright Docs](https://playwright.dev/docs/intro)
 - **TypeScript Documentation**: [TypeScript Docs](https://www.typescriptlang.org/docs/)
-- **Further Learning**:
-  - Online courses
-  - Playwright GitHub repository for examples
-  - Community forums and discussions
