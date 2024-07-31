@@ -25,7 +25,7 @@ test("cookie banner visible when first load", async ({ page }) => {
   // await cookieBanner.screenshot({ path: "cookie-banner.png" });
 });
 
-test("test", async ({ page }) => {
+test("cookie banner stays gone after refresh", async ({ page }) => {
   await page.goto(
     "https://www.gov.uk/government/organisations/companies-house"
   );
@@ -45,4 +45,35 @@ test("test", async ({ page }) => {
   await page.reload();
 
   await expect(cookieBanner).not.toBeVisible();
+});
+
+test("test that kevin is a director of his own company", async ({ page }) => {
+  await page.goto(
+    "https://www.gov.uk/government/organisations/companies-house"
+  );
+  await page.getByRole("link", { name: "Find company information" }).click();
+  await page.getByRole("button", { name: "Start now" }).click();
+
+  await page
+    .getByLabel("Enter company name, number or")
+    .fill("doing and learning");
+
+  await page.getByRole("button", { name: "Search" }).click();
+
+  await page.getByRole("link", { name: "DOING AND LEARNING LTD" }).click();
+
+  const companyName = await page.getByRole("link", {
+    name: "DOING AND LEARNING LTD",
+  });
+  await expect(companyName).toBeVisible();
+  await companyName.click();
+
+  await page
+    .getByRole("link", { name: "People for DOING AND LEARNING" })
+    .click();
+  const name = await page.getByRole("link", {
+    name: "CUNNINGHAM, Kevin Peter",
+  });
+
+  await expect(name).toBeVisible();
 });
