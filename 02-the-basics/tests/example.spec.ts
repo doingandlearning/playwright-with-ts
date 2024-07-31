@@ -30,7 +30,7 @@ add(1, 2);
 add1(1, 2);
 add2(1, 2);
 
-test(a, b);
+// test(a, b);
 
 test("get started link", async ({ page }) => {
   await page.goto("https://playwright.dev/");
