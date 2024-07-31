@@ -1,82 +1,200 @@
-### Session 1: Introduction and Setup
+### Session 3: Advanced Test Management
 
-#### 1. Introduction
+#### 1. Hooks: beforeEach and afterEach
 
-##### Course Objectives and Structure
+##### Introduction to Hooks in Playwright
 
-- **Objective**: By the end of this workshop, participants will be able to create, run, and manage automated tests using Playwright and TypeScript.
-- **Structure**: The workshop is divided into sessions focusing on different aspects of Playwright and TypeScript, with hands-on exercises to reinforce learning. Please do interrupt me if you're confused because I haven't been clear enough.
+- **Hooks**: Special functions that run before or after each test.
+  - **beforeEach**: Runs before each test to set up preconditions.
+  - **afterEach**: Runs after each test to clean up.
 
-##### Overview of Playwright and TypeScript
+##### Using beforeEach to Set Up Test Preconditions
 
-- **Playwright**: A powerful end-to-end testing framework that allows for automated testing of web applications across different browsers.
-  - **Key Features**:
-    - Cross-browser testing
-    - Automatic waiting
-    - Network interception
-    - Screenshots and videos
-- **TypeScript**: A statically typed superset of JavaScript that enhances code quality and developer productivity.
-  - **Key Features**:
-    - Static typing
-    - Modern JavaScript features
-    - Improved tooling and refactoring capabilities
+- **Purpose**: Ensure consistent starting state for each test.
+- **Example**:
 
-##### Importance of Playwright for Testing
+  ```typescript
+  import { test } from "@playwright/test";
 
-- **Efficient and Reliable Testing**: Playwright's robust feature set ensures reliable tests.
-- **Cross-browser Compatibility**: Test across Chromium, Firefox, and WebKit.
-- **Ease of Use**: Simple setup and comprehensive documentation make it accessible.
+  test.beforeEach(async ({ page }) => {
+    await page.goto(
+      "https://www.gov.uk/government/organisations/companies-house"
+    );
+  });
 
-#### 2. Getting Started
+  test("check title", async ({ page }) => {
+    const title = await page.title();
+    expect(title).toBe("Companies House - GOV.UK");
+  });
+  ```
 
-##### Setting up a new project
+##### Using afterEach to Clean Up After Tests
 
-- Move into the student directory and run:
+- **Purpose**: Clean up actions after each test to ensure isolation.
+- **Example**:
 
-```
-npm init playwright@latest
-```
+  ```typescript
+  import { test } from "@playwright/test";
 
-- Open the project up in VSCode - that might mean opening VSCode and then opening the folder or using the `code` CLI command.
-- Explore the project - what are each of the files doing?
-- Run the example test
+  test.afterEach(async ({ page }) => {
+    // Example clean up action
+    await page.close();
+  });
 
-```
-npx playwright test
-```
+  test("check title", async ({ page }) => {
+    const title = await page.title();
+    expect(title).toBe("Companies House - GOV.UK");
+  });
+  ```
 
-- View the report
+##### Practical Examples and Best Practices
 
-```
-npx playwright show-report
-```
+- **Consistent Setup**: Use `beforeEach` to navigate to the starting URL.
+- **Clean Slate**: Use `afterEach` to close the page or clean local storage.
 
-- Run the test in UI mode
+#### 2. Parameterization
 
-```
-npx playwright test --ui
-```
+##### Writing Flexible and Reusable Tests with Parameterization
 
-##### Configuring the Development Environment (VSCode Setup)
+- **Purpose**: Make tests flexible by running them with different sets of data.
+- **Example**:
 
-**VSCode Extensions**:
+  ```typescript
+  import { test, expect } from "@playwright/test";
 
-- **Recommended Extensions**:
-  - **ESLint**: To maintain code quality.
-  - **Prettier**: To format code consistently.
-  - **Playwright Test for VSCode**: To run and debug Playwright tests within VSCode.
+  const urls = [
+    { url: "https://www.gov.uk", title: "Welcome to GOV.UK" },
+    { url: "https://www.gov.uk/contact", title: "Contact GOV.UK" },
+  ];
 
-**VSCode Settings**:
-
-- Open the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) and select `Preferences: Open Settings (JSON)`.
-- Add the following configurations:
-  ```json
-  {
-    "editor.formatOnSave": true,
-    "typescript.validate.enable": true,
-    "files.autoSave": "onFocusChange",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    }
+  for (const { url, title } of urls) {
+    test(`verify title for ${url}`, async ({ page }) => {
+      await page.goto(url);
+      const pageTitle = await page.title();
+      expect(pageTitle).toBe(title);
+    });
   }
   ```
+
+##### Using External Data Sources for Test Parameters
+
+- **Purpose**: Load test data from external sources like JSON files or APIs.
+- **Example**:
+
+  ```typescript
+  import { test, expect } from "@playwright/test";
+  import testData from "./test-data.json";
+
+  for (const { url, title } of testData) {
+    test(`verify title for ${url}`, async ({ page }) => {
+      await page.goto(url);
+      const pageTitle = await page.title();
+      expect(pageTitle).toBe(title);
+    });
+  }
+  ```
+
+- **Sample `test-data.json`**:
+  ```json
+  [
+    { "url": "https://www.gov.uk", "title": "Welcome to GOV.UK" },
+    { "url": "https://www.gov.uk/contact", "title": "Contact GOV.UK" }
+  ]
+  ```
+
+##### Implementing Parameterized Tests in Playwright
+
+- **Approach**: Use loops and data-driven techniques to run tests with multiple data sets.
+- **Example**:
+
+  ```typescript
+  import { test, expect } from "@playwright/test";
+
+  const testData = [
+    { searchTerm: "Companies House", expected: "Companies House" },
+    { searchTerm: "HMRC", expected: "HM Revenue & Customs" },
+  ];
+
+  testData.forEach(({ searchTerm, expected }) => {
+    test(`search for ${searchTerm}`, async ({ page }) => {
+      await page.goto("https://www.gov.uk/search");
+      await page.fill('input[name="q"]', searchTerm);
+      await page.click('button[type="submit"]');
+      const result = await page.textContent("h1");
+      expect(result).toContain(expected);
+    });
+  });
+  ```
+
+#### Hands-On Exercise
+
+**Objective**: Implement `beforeEach` and `afterEach` hooks, and create parameterized tests with external data.
+
+1. **Implement `beforeEach` and `afterEach` Hooks**:
+
+   - Set up a test that navigates to a specific page before each test.
+   - Clean up actions after each test, such as closing the page.
+
+2. **Create Parameterized Tests**:
+   - Write tests that use multiple sets of data.
+   - Load test data from an external JSON file.
+
+**Exercise Example**:
+
+1. **`beforeEach` and `afterEach` Hooks**:
+
+   ```typescript
+   import { test, expect } from "@playwright/test";
+
+   test.beforeEach(async ({ page }) => {
+     await page.goto("https://www.gov.uk");
+   });
+
+   test.afterEach(async ({ page }) => {
+     await page.close();
+   });
+
+   test("check homepage title", async ({ page }) => {
+     const title = await page.title();
+     expect(title).toBe("Welcome to GOV.UK");
+   });
+   ```
+
+2. **Parameterized Tests**:
+
+   ```typescript
+   import { test, expect } from "@playwright/test";
+   import testData from "./test-data.json";
+
+   testData.forEach(({ url, title }) => {
+     test(`verify title for ${url}`, async ({ page }) => {
+       await page.goto(url);
+       const pageTitle = await page.title();
+       expect(pageTitle).toBe(title);
+     });
+   });
+   ```
+
+**Expected Outcome**: Participants will learn how to use hooks for setup and cleanup, and create flexible tests using parameterization with external data sources.
+
+```ts
+test("Take a screenshot", async ({ page }) => {
+  await page.goto(
+    "https://www.gov.uk/government/organisations/companies-house"
+  );
+
+  // Default screenshot of the full viewport
+  await page.screenshot({ path: "screenshot.png" });
+
+  // Screenshot of a specific element
+  const cookieBanner = page.locator("#global-cookie-message");
+  await cookieBanner.screenshot({ path: "cookie-banner.png" });
+
+  // Full page screenshot
+  await page.screenshot({ path: "fullpage-screenshot.png", fullPage: true });
+
+  // Screenshot with specific viewport size
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.screenshot({ path: "viewport-screenshot.png" });
+});
+```

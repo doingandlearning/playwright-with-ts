@@ -1,0 +1,480 @@
+{
+  "config": {
+    "configFile": "/Users/kevin/code/fwt/playwright-jul-2024/04-reports-and-stuff/playwright.config.ts",
+    "rootDir": "/Users/kevin/code/fwt/playwright-jul-2024/04-reports-and-stuff/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/kevin/code/fwt/playwright-jul-2024/04-reports-and-stuff/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/kevin/code/fwt/playwright-jul-2024/04-reports-and-stuff/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/kevin/code/fwt/playwright-jul-2024/04-reports-and-stuff/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/kevin/code/fwt/playwright-jul-2024/04-reports-and-stuff/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/kevin/code/fwt/playwright-jul-2024/04-reports-and-stuff/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/kevin/code/fwt/playwright-jul-2024/04-reports-and-stuff/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.45.3",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "companies-house.spec.ts",
+      "file": "companies-house.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "companies house title is correct",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 1226,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-07-31T14:39:41.641Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "259928a0ba67eaad58ab-5611cd724eb35caf1836",
+          "file": "companies-house.spec.ts",
+          "line": 18,
+          "column": 5
+        },
+        {
+          "title": "cookie banner visible when first load",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 1160,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-07-31T14:39:41.638Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "259928a0ba67eaad58ab-5647ce0a3c7c0c66a3f1",
+          "file": "companies-house.spec.ts",
+          "line": 28,
+          "column": 5
+        },
+        {
+          "title": "cookie banner stays gone after refresh",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "passed",
+                  "duration": 1586,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-07-31T14:39:41.673Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "259928a0ba67eaad58ab-6267c3ef65e55c6984b5",
+          "file": "companies-house.spec.ts",
+          "line": 36,
+          "column": 5
+        },
+        {
+          "title": "test that kevin is a director of his own company",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "status": "passed",
+                  "duration": 3107,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-07-31T14:39:41.701Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "259928a0ba67eaad58ab-4ad8434d41c9861cb00f",
+          "file": "companies-house.spec.ts",
+          "line": 52,
+          "column": 5
+        },
+        {
+          "title": "companies house title is correct",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "status": "passed",
+                  "duration": 3321,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-07-31T14:39:44.100Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "259928a0ba67eaad58ab-bb6f801f21e8fb9ea8df",
+          "file": "companies-house.spec.ts",
+          "line": 18,
+          "column": 5
+        },
+        {
+          "title": "cookie banner visible when first load",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 2909,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-07-31T14:39:44.094Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "259928a0ba67eaad58ab-aa7f13f6db81c2e6e022",
+          "file": "companies-house.spec.ts",
+          "line": 28,
+          "column": 5
+        },
+        {
+          "title": "cookie banner stays gone after refresh",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 4510,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-07-31T14:39:44.344Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "259928a0ba67eaad58ab-e7725145dbb13aad142f",
+          "file": "companies-house.spec.ts",
+          "line": 36,
+          "column": 5
+        },
+        {
+          "title": "test that kevin is a director of his own company",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "status": "passed",
+                  "duration": 6728,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-07-31T14:39:46.052Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "259928a0ba67eaad58ab-6db91fa6f328e56c1af2",
+          "file": "companies-house.spec.ts",
+          "line": 52,
+          "column": 5
+        },
+        {
+          "title": "companies house title is correct",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "status": "passed",
+                  "duration": 1340,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-07-31T14:39:50.095Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "259928a0ba67eaad58ab-7277f4c23929dbc574b0",
+          "file": "companies-house.spec.ts",
+          "line": 18,
+          "column": 5
+        },
+        {
+          "title": "cookie banner visible when first load",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "status": "passed",
+                  "duration": 1094,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-07-31T14:39:50.359Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "259928a0ba67eaad58ab-ab576995a654a9647188",
+          "file": "companies-house.spec.ts",
+          "line": 28,
+          "column": 5
+        },
+        {
+          "title": "cookie banner stays gone after refresh",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "status": "passed",
+                  "duration": 1461,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-07-31T14:39:51.985Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "259928a0ba67eaad58ab-85d187fe0eacfe6ee636",
+          "file": "companies-house.spec.ts",
+          "line": 36,
+          "column": 5
+        },
+        {
+          "title": "test that kevin is a director of his own company",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "status": "passed",
+                  "duration": 5666,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-07-31T14:39:51.809Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "259928a0ba67eaad58ab-db07207a2d3ca367d7a8",
+          "file": "companies-house.spec.ts",
+          "line": 52,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2024-07-31T14:39:40.946Z",
+    "duration": 16569.559,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
