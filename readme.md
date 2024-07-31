@@ -62,9 +62,12 @@ The aim of the workshop is to enable testers with extensive Selenium and Java ex
    - Practical examples and best practices
 
 2. **Parameterization**
+
    - Writing flexible and reusable tests with parameterization
    - Using external data sources for test parameters
    - Implementing parameterized tests in Playwright
+
+3. **Screenshots**
 
 ### Session 4: Running, Debugging, and Integrating Tests
 
@@ -74,6 +77,7 @@ The aim of the workshop is to enable testers with extensive Selenium and Java ex
    - Running tests in headless mode
    - Debugging Playwright tests using VSCode
    - Troubleshooting common issues
+   - What about those flaky tests!
 
 2. **Test Reports**
 

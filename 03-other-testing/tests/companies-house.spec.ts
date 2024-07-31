@@ -1,10 +1,21 @@
 import { test, expect } from "@playwright/test";
 
-test("companies house title is correct", async ({ page }) => {
-  // go to the webpage
+// test.beforeAll(() => {
+//   // connecting to database
+//   // check to make sure that the URL is live ...
+// });
+test.beforeEach(async ({ page }) => {
   await page.goto(
     "https://www.gov.uk/government/organisations/companies-house"
   );
+});
+test.afterEach(async ({ page }) => {
+  const time = new Date().getTime();
+  await page.screenshot({ path: `screenshot-${time}.png` });
+});
+test.afterAll(() => {});
+
+test("companies house title is correct", async ({ page }) => {
   // find the title
   const title = await page.title();
   // verify it is correct
@@ -15,9 +26,6 @@ test("companies house title is correct", async ({ page }) => {
 });
 
 test("cookie banner visible when first load", async ({ page }) => {
-  await page.goto(
-    "https://www.gov.uk/government/organisations/companies-house"
-  );
   // Capture the cookie banner
   const cookieBanner = await page.getByLabel("Cookies on GOV.UK");
   await expect(cookieBanner).toBeVisible();
@@ -26,9 +34,6 @@ test("cookie banner visible when first load", async ({ page }) => {
 });
 
 test("cookie banner stays gone after refresh", async ({ page }) => {
-  await page.goto(
-    "https://www.gov.uk/government/organisations/companies-house"
-  );
   const cookieBanner = await page.getByLabel("Cookies on GOV.UK");
   await expect(cookieBanner).toBeVisible();
 
@@ -39,18 +44,12 @@ test("cookie banner stays gone after refresh", async ({ page }) => {
   await expect(cookieBanner).not.toBeVisible();
 
   // Refresh the page
-  await page.goto(
-    "https://www.gov.uk/government/organisations/companies-house"
-  );
   await page.reload();
 
   await expect(cookieBanner).not.toBeVisible();
 });
 
 test("test that kevin is a director of his own company", async ({ page }) => {
-  await page.goto(
-    "https://www.gov.uk/government/organisations/companies-house"
-  );
   await page.getByRole("link", { name: "Find company information" }).click();
   await page.getByRole("button", { name: "Start now" }).click();
 
